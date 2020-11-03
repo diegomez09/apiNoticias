@@ -56,5 +56,20 @@ namespace NoticiasApi.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpDelete]
+        [Route("eliminar/{NoticiaID}")]
+        public IActionResult Eliminar(int NoticiaID)
+        {
+            var resultado = _noticiaService.Eliminar(NoticiaID);
+            if (resultado)
+            {
+                return Ok(NoticiaID);
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
     }
 }

@@ -58,7 +58,10 @@ namespace NoticiasApi.Services
         {
             try
             {
-
+                var noticiaBaseDatos = _noticiaDbContext.Noticia.Where(noticia =>
+                noticia.NoticiaID == NoticiaID).FirstOrDefault();
+                _noticiaDbContext.Noticia.Remove(noticiaBaseDatos);
+                _noticiaDbContext.SaveChanges();
                 return true;
             }
             catch(Exception error)
