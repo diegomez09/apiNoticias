@@ -14,6 +14,7 @@ namespace NoticiasApi.Services
         {
             _autorDbContext = autorDbContext;
         }
+
         public List<Autor> Obtener()
         {
             try

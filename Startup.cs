@@ -30,6 +30,7 @@ namespace NoticiasApi
             services.AddControllers();
             services.AddDbContext<DBContext>(opciones => opciones.UseSqlServer(Configuration.GetConnectionString("conexionNoticias")));
             services.AddTransient<NoticiaService, NoticiaService>();
+            services.AddTransient<AutorService, AutorService>();
             services.AddCors(opciones =>
             {
                 opciones.AddPolicy("PermitirTodo", accesos => accesos.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
